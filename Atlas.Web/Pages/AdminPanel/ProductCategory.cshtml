@@ -1,0 +1,118 @@
+﻿@page
+@using Atlas.Connector.ShopManagement
+@model Atlas.Web.Pages.AdminPanel.ProductCategoryModel
+@{
+    ViewData["Title"] = "Product Category";
+    Layout = "~/Pages/Shared/_AdminLayout.cshtml";
+}
+<div class="position-relative iq-banner">
+    <!--Nav Start-->
+    <div class="iq-navbar-header" style="height: 215px;">
+        <div class="container-fluid iq-container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="flex-wrap d-flex justify-content-between align-items-center">
+                        <div>
+                            <h1>@ViewData["Title"]</h1>
+                        </div>
+                        <div>
+                            <a href="#" class="btn btn-link btn-soft-light">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" class="icon-32">
+                                    <path d="M12 4V20M20 12H4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                                </svg>
+                                Insert New ...
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="iq-header-img">
+            <img src="~/AdminPanal/images/dashboard/top-header.png" alt="header" class="theme-color-default-img img-fluid w-100 h-100 animated-scaleX" loading="lazy">
+            <img src="~/AdminPanal/images/dashboard/top-header1.png" alt="header" class="theme-color-purple-img img-fluid w-100 h-100 animated-scaleX" loading="lazy">
+            <img src="~/AdminPanal/images/dashboard/top-header2.png" alt="header" class="theme-color-blue-img img-fluid w-100 h-100 animated-scaleX" loading="lazy">
+            <img src="~/AdminPanal/images/dashboard/top-header3.png" alt="header" class="theme-color-green-img img-fluid w-100 h-100 animated-scaleX" loading="lazy">
+            <img src="~/AdminPanal/images/dashboard/top-header4.png" alt="header" class="theme-color-yellow-img img-fluid w-100 h-100 animated-scaleX" loading="lazy">
+            <img src="~/AdminPanal/images/dashboard/top-header5.png" alt="header" class="theme-color-pink-img img-fluid w-100 h-100 animated-scaleX" loading="lazy">
+        </div>
+    </div>
+    <!-- Nav Header Component End -->
+    <!--Nav End-->
+</div>
+<div class="content-inner container-fluid pb-0" id="page_layout">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="mb-0">User List</h5>
+                </div>
+                <div class="card-body px-0">
+                    <div class="table-left-bordered table-responsive mt-3">
+                        <table class="table mb-0" id="datatable" data-toggle="data-table">
+                            <thead>
+                                <tr class="bg-white">
+                                    <th scope="col">Picture</th>
+                                    <th scope="col">Name</th>
+                                    <th scope="col">Description</th>
+                                    <th scope="col">Meta Description</th>
+                                    <th scope="col">Key Words</th>
+                                    <th scope="col">Status</th>
+                                    <th scope="col">Picture Title</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in await new ProductCategoriesInformation().GetAllAsync())
+                                {
+                                    <tr>
+                                        <td>
+                                            <div class="d-flex align-items-center">
+                                                <img height="64px" width="64px" class="rounded img-fluid avatar-65 me-3" src="https://s26.picofile.com/file/8460320650/img1.jpg" alt="TEST" loading="lazy" />
+                                            </div>
+                                        </td>
+                                        <td class="text-dark">Product Category Name</td>
+                                        <td class="text-dark">ProductCategory@gmail.com</td>
+                                        <td class="text-dark">Product Category Description</td>
+                                        <td class="text-dark">Product Category Meta Description</td>
+                                        <td>
+                                            <span class="badge bg-soft-primary p-2 text-primary">Show</span>
+                                        </td>
+                                        <td>
+                                            <div class="d-flex justify-content-evenly">
+                                                <a class="btn btn-primary btn-icon btn-sm rounded-pill" asp-page="/Adminpanel/Test" role="button">
+                                                    <span class="btn-inner">
+                                                        <svg fill="none" width="24" height="24" viewBox="0 0 24 24">
+                                                            <path fill-rule="evenodd" clip-rule="evenodd" d="M15.1614 12.0531C15.1614 13.7991 13.7454 15.2141 11.9994 15.2141C10.2534 15.2141 8.83838 13.7991 8.83838 12.0531C8.83838 10.3061 10.2534 8.89111 11.9994 8.89111C13.7454 8.89111 15.1614 10.3061 15.1614 12.0531Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                                            <path fill-rule="evenodd" clip-rule="evenodd" d="M11.998 19.355C15.806 19.355 19.289 16.617 21.25 12.053C19.289 7.48898 15.806 4.75098 11.998 4.75098H12.002C8.194 4.75098 4.711 7.48898 2.75 12.053C4.711 16.617 8.194 19.355 12.002 19.355H11.998Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                                        </svg>
+                                                    </span>
+                                                </a>
+                                                <a class="btn btn-primary btn-icon btn-sm rounded-pill ms-2" asp-page="/Adminpanel/Test" role="button">
+                                                    <span class="btn-inner">
+                                                        <svg class="icon-32" width="32" viewBox="0 0 24 24" fill="none">
+                                                            <path opacity="0.4" d="M19.9927 18.9534H14.2984C13.7429 18.9534 13.291 19.4124 13.291 19.9767C13.291 20.5422 13.7429 21.0001 14.2984 21.0001H19.9927C20.5483 21.0001 21.0001 20.5422 21.0001 19.9767C21.0001 19.4124 20.5483 18.9534 19.9927 18.9534Z" fill="currentColor"></path>
+                                                            <path d="M10.309 6.90385L15.7049 11.2639C15.835 11.3682 15.8573 11.5596 15.7557 11.6929L9.35874 20.0282C8.95662 20.5431 8.36402 20.8344 7.72908 20.8452L4.23696 20.8882C4.05071 20.8903 3.88775 20.7613 3.84542 20.5764L3.05175 17.1258C2.91419 16.4915 3.05175 15.8358 3.45388 15.3306L9.88256 6.95545C9.98627 6.82108 10.1778 6.79743 10.309 6.90385Z" fill="currentColor"></path>
+                                                            <path opacity="0.4" d="M18.1208 8.66544L17.0806 9.96401C16.9758 10.0962 16.7874 10.1177 16.6573 10.0124C15.3927 8.98901 12.1545 6.36285 11.2561 5.63509C11.1249 5.52759 11.1069 5.33625 11.2127 5.20295L12.2159 3.95706C13.126 2.78534 14.7133 2.67784 15.9938 3.69906L17.4647 4.87078C18.0679 5.34377 18.47 5.96726 18.6076 6.62299C18.7663 7.3443 18.597 8.0527 18.1208 8.66544Z" fill="currentColor"></path>
+                                                        </svg>
+                                                    </span>
+                                                </a>
+                                                <a class="btn btn-primary btn-icon btn-sm rounded-pill ms-2" asp-page="/Adminpanel/Test" role="button">
+                                                    <span class="btn-inner">
+                                                        <svg class="icon-32" width="32" viewBox="0 0 24 24" fill="none">
+                                                            <path opacity="0.4" d="M19.643 9.48851C19.643 9.5565 19.11 16.2973 18.8056 19.1342C18.615 20.8751 17.4927 21.9311 15.8092 21.9611C14.5157 21.9901 13.2494 22.0001 12.0036 22.0001C10.6809 22.0001 9.38741 21.9901 8.13185 21.9611C6.50477 21.9221 5.38147 20.8451 5.20057 19.1342C4.88741 16.2873 4.36418 9.5565 4.35445 9.48851C4.34473 9.28351 4.41086 9.08852 4.54507 8.93053C4.67734 8.78453 4.86796 8.69653 5.06831 8.69653H18.9388C19.1382 8.69653 19.3191 8.78453 19.4621 8.93053C19.5953 9.08852 19.6624 9.28351 19.643 9.48851Z" fill="currentColor"></path>
+                                                            <path d="M21 5.97686C21 5.56588 20.6761 5.24389 20.2871 5.24389H17.3714C16.7781 5.24389 16.2627 4.8219 16.1304 4.22692L15.967 3.49795C15.7385 2.61698 14.9498 2 14.0647 2H9.93624C9.0415 2 8.26054 2.61698 8.02323 3.54595L7.87054 4.22792C7.7373 4.8219 7.22185 5.24389 6.62957 5.24389H3.71385C3.32386 5.24389 3 5.56588 3 5.97686V6.35685C3 6.75783 3.32386 7.08982 3.71385 7.08982H20.2871C20.6761 7.08982 21 6.75783 21 6.35685V5.97686Z" fill="currentColor"></path>
+                                                        </svg>
+                                                    </span>
+                                                </a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                }
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

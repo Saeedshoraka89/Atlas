@@ -77,8 +77,8 @@ namespace ShopManagement.Infrastructure.EfCore.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "01H2332JBY835BBXBZ9KTN8AK9",
-                            CreationDate = "1402/3/14",
+                            Id = "01H41ZDYQBQR2N6T193C5Z7G9K",
+                            CreationDate = "1402/4/7",
                             Description = "Test",
                             KeyWords = "Test",
                             MetaDescription = "Test",

@@ -5,7 +5,7 @@
 namespace ShopManagement.Infrastructure.EfCore.Migrations
 {
     /// <inheritdoc />
-    public partial class ShopMigration : Migration
+    public partial class AtlasMigration : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -34,7 +34,7 @@ namespace ShopManagement.Infrastructure.EfCore.Migrations
             migrationBuilder.InsertData(
                 table: "ProductCategories",
                 columns: new[] { "Id", "CreationDate", "Description", "KeyWords", "MetaDescription", "Name", "Picture", "PictureAlt", "PictureTitle", "Slug", "Status" },
-                values: new object[] { "01H2332JBY835BBXBZ9KTN8AK9", "1402/3/14", "Test", "Test", "Test", "Test", "Test", "Test", "Test", "Test", (byte)1 });
+                values: new object[] { "01H41ZDYQBQR2N6T193C5Z7G9K", "1402/4/7", "Test", "Test", "Test", "Test", "Test", "Test", "Test", "Test", (byte)1 });
         }
 
         /// <inheritdoc />

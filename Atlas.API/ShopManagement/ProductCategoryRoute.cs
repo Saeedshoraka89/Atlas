@@ -1,6 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc;
-
-namespace Atlas.API.ShopManagement;
+﻿namespace Atlas.API.ShopManagement;
 
 public static class ProductCategoryRoute
 {
