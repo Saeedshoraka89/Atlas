@@ -2,13 +2,13 @@
 
 public class ProductCategoriesInformation
 {
-    private readonly string apiAddress = "https://localhost:7063/Api/ProductCategory";
     private readonly HttpClient? _client;
+    private readonly string apiAddress = "https://localhost:7063/Api/ProductCategory";
     private readonly HttpClientHandler? ClientHandler;
 
     public ProductCategoriesInformation()
     {
-        ClientHandler = new();
+        ClientHandler = new HttpClientHandler();
         ClientHandler.ServerCertificateCustomValidationCallback = (sender, cert, chain, sslPolicyErrors) => true;
         _client = new HttpClient(ClientHandler);
     }
@@ -17,7 +17,8 @@ public class ProductCategoriesInformation
     {
         try
         {
-            using StringReader treader = new(await Task.Run(() => _client?.GetStringAsync(apiAddress + "/AllProductCategories")));
+            using StringReader treader =
+                new(await Task.Run(() => _client?.GetStringAsync(apiAddress + "/AllProductCategories")));
             await using JsonTextReader jReader = new(treader);
             return new JsonSerializer().Deserialize<List<ProductCategoryViewModel>>(jReader)!;
         }
@@ -32,7 +33,8 @@ public class ProductCategoriesInformation
         try
         {
             return await Task.Run(() =>
-                JsonConvert.DeserializeObject<ProductCategoryViewModel>(_client?.GetStringAsync($"{apiAddress}/ProductCategoryById/{id}").Result ?? string.Empty));
+                JsonConvert.DeserializeObject<ProductCategoryViewModel>(
+                    _client?.GetStringAsync($"{apiAddress}/ProductCategoryById/{id}").Result ?? string.Empty));
         }
         catch
         {
@@ -44,7 +46,8 @@ public class ProductCategoriesInformation
     {
         try
         {
-            HttpResponseMessage result = await Task.Run(() => _client?.PostAsync($"{apiAddress}/Insert", new StringContent(JsonConvert.SerializeObject(itemList), Encoding.UTF8, "application/Json")));
+            var result = await Task.Run(() => _client?.PostAsync($"{apiAddress}/Insert",
+                new StringContent(JsonConvert.SerializeObject(itemList), Encoding.UTF8, "application/Json")));
             return result.StatusCode == HttpStatusCode.OK;
         }
         catch
@@ -57,7 +60,8 @@ public class ProductCategoriesInformation
     {
         try
         {
-            HttpResponseMessage result = await Task.Run(() => _client?.PutAsync($"{apiAddress}/Update", new StringContent(JsonConvert.SerializeObject(itemList), Encoding.UTF8, "application/Json")));
+            var result = await Task.Run(() => _client?.PutAsync($"{apiAddress}/Update",
+                new StringContent(JsonConvert.SerializeObject(itemList), Encoding.UTF8, "application/Json")));
             return result.StatusCode == HttpStatusCode.OK;
         }
         catch
@@ -70,7 +74,7 @@ public class ProductCategoriesInformation
     {
         try
         {
-            HttpResponseMessage result = await Task.Run(() => _client?.DeleteAsync($"{apiAddress}/Delete/{id}"));
+            var result = await Task.Run(() => _client?.DeleteAsync($"{apiAddress}/Delete/{id}"));
             return result.StatusCode == HttpStatusCode.OK;
         }
         catch

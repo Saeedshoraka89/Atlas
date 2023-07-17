@@ -1,12 +1,8 @@
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
+namespace Atlas.Web.Pages.AdminPanel;
 
-namespace Atlas.Web.Pages.AdminPanel
+public class TestModel : PageModel
 {
-    public class TestModel : PageModel
+    public void OnGet()
     {
-        public void OnGet()
-        {
-        }
     }
 }

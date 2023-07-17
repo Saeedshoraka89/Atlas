@@ -1,6 +1,6 @@
 ﻿@page
 @using Atlas.Connector.ShopManagement
-@model Atlas.Web.Pages.AdminPanel.ProductCategoryModel
+@model ProductCategoryModel
 @{
     ViewData["Title"] = "Product Category";
     Layout = "~/Pages/Shared/_AdminLayout.cshtml";
@@ -16,7 +16,7 @@
                             <h1>@ViewData["Title"]</h1>
                         </div>
                         <div>
-                            <a href="#" class="btn btn-link btn-soft-light">
+                            <a href="#showmodal=@Url.Page("./Index", "Create")" class="btn btn-link btn-soft-light">
                                 <svg width="32" height="32" viewBox="0 0 24 24" fill="none" class="icon-32">
                                     <path d="M12 4V20M20 12H4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
                                 </svg>

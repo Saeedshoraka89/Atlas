@@ -31,7 +31,8 @@ public class ProductCategoryRepository : GenericRepository<Ulid, ProductCategory
     }
 
     public async ValueTask<EditProductCategory> GetByDetailsAsync(Ulid id)
-        => (await _context.ProductCategories!.Select(x => new EditProductCategory
+    {
+        return (await _context.ProductCategories!.Select(x => new EditProductCategory
         {
             Id = x.Id,
             Name = x.Name,
@@ -43,6 +44,7 @@ public class ProductCategoryRepository : GenericRepository<Ulid, ProductCategory
             MetaDescription = x.MetaDescription,
             Slug = x.Slug
         }).FirstOrDefaultAsync(x => x.Id == id))!;
+    }
 
     public async ValueTask Delete(Ulid id)
     {

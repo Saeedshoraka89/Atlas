@@ -30,18 +30,19 @@ public static class ProductCategoryRoute
             }
         });
 
-        item.MapGet("/Search", async ([FromBody] ProductCategorySearchModel searchModel, IProductCategoryApplication application) =>
-        {
-            try
+        item.MapGet("/Search",
+            async ([FromBody] ProductCategorySearchModel searchModel, IProductCategoryApplication application) =>
             {
-                return Results.Ok(await application.SearchAsync(searchModel));
-            }
-            catch (Exception e)
-            {
-                return Results.BadRequest(e.Message);
-            }
-        });
-        
+                try
+                {
+                    return Results.Ok(await application.SearchAsync(searchModel));
+                }
+                catch (Exception e)
+                {
+                    return Results.BadRequest(e.Message);
+                }
+            });
+
         item.MapPost("/Insert", async (CreateProductCategory entity, IProductCategoryApplication application) =>
         {
             try
@@ -53,7 +54,7 @@ public static class ProductCategoryRoute
                 return Results.BadRequest(e.Message);
             }
         });
-        
+
         item.MapPut("/Update", async (EditProductCategory entity, IProductCategoryApplication application) =>
         {
             try
@@ -65,7 +66,7 @@ public static class ProductCategoryRoute
                 return Results.BadRequest(e.Message);
             }
         });
-        
+
         item.MapDelete("/Delete/{id}", async (Ulid id, IProductCategoryApplication application) =>
         {
             try

@@ -10,7 +10,8 @@ public class ProductCategoryApplication : IProductCategoryApplication
     }
 
     public async ValueTask<ICollection<ProductCategoryViewModel>> GetAllAsync()
-        => (await _repository.GetAllAsync()).Select(x => new ProductCategoryViewModel
+    {
+        return (await _repository.GetAllAsync()).Select(x => new ProductCategoryViewModel
         {
             Id = x.Id,
             Name = x.Name,
@@ -19,6 +20,7 @@ public class ProductCategoryApplication : IProductCategoryApplication
             CreationDate = x.CreationDate,
             Status = x.Status
         }).Where(x => x.Status == StatusType.Show).ToList();
+    }
 
     public async ValueTask<OperationResult> CreateAsync(CreateProductCategory entity)
     {
@@ -29,7 +31,8 @@ public class ProductCategoryApplication : IProductCategoryApplication
             if (await _repository.CheckExistAsync(x => x.Name == entity.Name))
                 return result.Failed("لطفا از درج مقادیر تکراری خود داری فرمائید");
 
-            await _repository.CreateAsync(new(entity.Name, entity.Description, entity.Picture, entity.PictureAlt,
+            await _repository.CreateAsync(new ProductCategory(entity.Name, entity.Description, entity.Picture,
+                entity.PictureAlt,
                 entity.PictureTitle, entity.MetaDescription, entity.KeyWords, entity.Slug.Slugify()));
 
             await _repository.SaveAsync();
@@ -54,7 +57,7 @@ public class ProductCategoryApplication : IProductCategoryApplication
             if (await _repository.CheckExistAsync(x => x.Name == entity.Name && x.Id != entity.Id))
                 return result.Failed("موردی یافت نشد\nخطا در ویرایش");
 
-            ProductCategory productCategory = await _repository.GetById(entity.Id);
+            var productCategory = await _repository.GetById(entity.Id);
 
             productCategory.Edit(entity.Name, entity.Description, entity.Picture, entity.PictureAlt,
                 entity.PictureTitle, entity.MetaDescription, entity.KeyWords, entity.Slug.Slugify());
@@ -78,7 +81,7 @@ public class ProductCategoryApplication : IProductCategoryApplication
             if (!await _repository.CheckExistAsync(x => x.Id == id))
                 return result.Failed("موردی یافت نشد\nخطا در حذف");
 
-            ProductCategory productCategory = await _repository.GetById(id);
+            var productCategory = await _repository.GetById(id);
 
             productCategory.Delete(StatusType.Deleted);
 
@@ -93,8 +96,12 @@ public class ProductCategoryApplication : IProductCategoryApplication
     }
 
     public async ValueTask<ICollection<ProductCategoryViewModel>> SearchAsync(ProductCategorySearchModel searchModel)
-    => await _repository.SearchAsync(searchModel);
+    {
+        return await _repository.SearchAsync(searchModel);
+    }
 
     public async ValueTask<EditProductCategory> GetByDetailsAsync(Ulid id)
-        => await _repository.GetByDetailsAsync(id);
+    {
+        return await _repository.GetByDetailsAsync(id);
+    }
 }

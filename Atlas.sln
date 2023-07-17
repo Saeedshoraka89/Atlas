@@ -29,7 +29,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Atlas.API", "Atlas.API\Atla
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Atlas.Web", "Atlas.Web\Atlas.Web.csproj", "{24542AE1-6E1D-42AE-BABE-0A858DE4D538}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Atlas.Connector", "Atlas.Connectorr\Atlas.Connector.csproj", "{11DC9FFD-FAC0-4626-AA9F-F9A3A05722E8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Atlas.Connector", "Atlas.Connector\Atlas.Connector.csproj", "{11DC9FFD-FAC0-4626-AA9F-F9A3A05722E8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

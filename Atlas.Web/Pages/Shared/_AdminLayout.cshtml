@@ -5,7 +5,7 @@
     <title>@ViewData["Title"] | Atlas</title>
     <!-- Google Font Api KEY-->
     <meta name="google_font_api" content="AIzaSyBG58yNdAjc20_8jAvLNSVi9E4Xhwjau_k">
-    
+
     <link rel="stylesheet" href="~/AdminPanal/css/core/libs.min.css" />
     <link rel="stylesheet" href="~/AdminPanal/vendor/flatpickr/dist/flatpickr.min.css" />
     <link rel="stylesheet" href="~/AdminPanal/vendor/sheperd/dist/css/sheperd.css">
@@ -70,7 +70,7 @@
                 <!-- Sidebar Menu Start -->
                 <ul class="navbar-nav iq-main-menu" id="sidebar-menu">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" asp-page="/AdminPanel/ProductCategory">
+                        <a class="nav-link active" aria-current="page" asp-page="/AdminPanel/Shop/ProductCategory/ProductCategory">
                             <i class="icon" data-bs-toggle="tooltip" title="Product Category" data-bs-placement="right">
                                 <svg width="20" class="icon-20" viewBox="0 0 24 24" fill="none">
                                     <path opacity="0.4"
@@ -1226,6 +1226,13 @@
             </circle>
         </svg>
     </a>
+    <div id="MainModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+        <div class="modal-dialog">
+            <div class="modal-content" id="ModalContent">
+            </div>
+        </div>
+    </div>
+
     <!-- Wrapper End-->
     <script src="~/AdminPanal/js/core/libs.min.js"></script>
     <!-- Plugin Scripts -->
@@ -1262,5 +1269,6 @@
     <script src="~/AdminPanal/js/hope-uid1f1.js?v=2.2.0" defer></script>
     <script src="~/AdminPanal/js/hope-uiprod1f1.js?v=2.2.0" defer></script>
     <script src="~/AdminPanal/js/sidebard1f1.js?v=2.2.0" defer></script>
+    <script src="~/AdminPanal/js/site.js"></script>
 </body>
 </html>

@@ -10,10 +10,14 @@ public class GenericRepository<TKey, T> : IGenericRepository<TKey, T> where T : 
     }
 
     public async ValueTask<ICollection<T>> GetAllAsync()
-        => await _context.Set<T>().ToListAsync();
+    {
+        return await _context.Set<T>().ToListAsync();
+    }
 
     public async ValueTask<T> GetById(TKey id)
-        => (await _context.Set<T>().FindAsync(id))!;
+    {
+        return (await _context.Set<T>().FindAsync(id))!;
+    }
 
     public async ValueTask CreateAsync(T entity)
     {
@@ -21,7 +25,9 @@ public class GenericRepository<TKey, T> : IGenericRepository<TKey, T> where T : 
     }
 
     public async ValueTask<bool> CheckExistAsync(Expression<Func<T, bool>> expression)
-        => await _context.Set<T>().AnyAsync(expression);
+    {
+        return await _context.Set<T>().AnyAsync(expression);
+    }
 
     public async ValueTask SaveAsync()
     {

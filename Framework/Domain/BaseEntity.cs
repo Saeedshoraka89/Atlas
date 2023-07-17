@@ -2,8 +2,8 @@
 
 public class BaseEntity
 {
-    private readonly PersianCalendar _persian = new();
     private readonly DateTime _date = DateTime.Now;
+    private readonly PersianCalendar _persian = new();
 
     protected BaseEntity()
     {

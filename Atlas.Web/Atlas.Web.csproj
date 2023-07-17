@@ -8,6 +8,11 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Atlas.Connectorr\Atlas.Connector.csproj" />
+    <ProjectReference Include="..\Atlas.Connector\Atlas.Connector.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\js\" />
   </ItemGroup>
 
 </Project>

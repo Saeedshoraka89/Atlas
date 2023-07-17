@@ -2,7 +2,8 @@
 
 public class ProductCategory : BaseEntity
 {
-    public ProductCategory(string name, string description, string? picture, string? pictureAlt, string? pictureTitle, string? metaDescription, string keyWords, string slug)
+    public ProductCategory(string name, string description, string? picture, string? pictureAlt, string? pictureTitle,
+        string? metaDescription, string keyWords, string slug)
     {
         Id = Ulid.NewUlid();
         Name = name;
@@ -26,7 +27,8 @@ public class ProductCategory : BaseEntity
     public string Slug { get; private set; }
     public StatusType Status { get; private set; }
 
-    public void Edit(string name, string description, string? picture, string? pictureAlt, string? pictureTitle, string? metaDescription, string keyWords, string slug)
+    public void Edit(string name, string description, string? picture, string? pictureAlt, string? pictureTitle,
+        string? metaDescription, string keyWords, string slug)
     {
         Name = name;
         Description = description;
